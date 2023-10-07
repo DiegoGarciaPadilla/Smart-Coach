@@ -1,0 +1,92 @@
+/*importa el font*/
+@font-face {
+    font-family: 'CarbonBlock';
+    src: url('/public/fonts/CarbonBlock.ttf') format('truetype');
+}
+
+/*background lo hace la foto*/
+.background-container {
+    background-image: url('/public/background/AMARILLO DE FONDO.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+  }
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/*Quita decoraciones a los links de los botones*/
+.Link {
+    color: inherit;
+    text-decoration: none;
+}
+
+/*Estilo de los titulos*/
+.Title{
+    font-family: 'CarbonBlock';
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    font-size: 7vw;
+}
+.Title2{
+    font-family: 'CarbonBlock';
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    font-size: 2.9vw;
+    margin-bottom: 2vw;
+}
+
+/*Hace que los logos y botones estén de los dos lados*/
+.navMenu {
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+  }
+
+.navLogos {
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    margin-right: 7vw;
+    margin-left: 5vw;
+  }
+
+.navLogo{
+    height: 30vw;
+    margin-bottom: 2vw;
+}
+.navLogo2{
+    height: 10.5vw;
+}
+
+.navOption{
+    margin-bottom: .5vw;
+    transform: scale(1);
+    transition: .5s;
+    margin-left: 5vw;
+}
+.navOption:hover{
+    transform: scale(1.1);
+    transition: .5s;
+}
+
+.navButton{
+    background-color: transparent;
+    border: none;
+}
+
+.navText{
+    font-family: 'CarbonBlock';
+    font-size: 2.5vw;
+    margin-left: 2vw;
+    vertical-align: middle;
+}
+
+.buttonImage{
+    height: 8rem;
+}

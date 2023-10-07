@@ -1,0 +1,245 @@
+@font-face {
+  font-family: 'CarbonBlock';
+  src: url('/public/fonts/CarbonBlock.ttf') format('truetype');
+}
+
+body{
+  font-family: 'CarbonBlock';
+}
+
+.view {
+  padding: 0 5vw;
+  min-height: 100vh;
+}
+
+/* Customize themes */
+.view--yellow {
+  background-image: url('/public/background/AMARILLO DE FONDO.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+}
+
+.view--yellow .header_button {
+  border: 2px solid black;
+}
+
+
+.view--black {
+  background-image: url('/public/background/NEGRO DE FONDO.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+}
+
+.view--black .header_title{
+  color: whitesmoke; 
+}
+
+.view--black .item_category {
+  color: #ffcc04;
+}
+
+.view--black .header_button {
+  border: 2px solid whitesmoke;
+  color: whitesmoke;
+}
+
+
+.view--white{
+  background-image: url('/public/background/BLANCO DE FONDO.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+}
+
+.view--white .header_title, .view--white .item_category{
+  /* color: #f01c24; */
+  color: #1e2177;
+}
+
+.view--white .header_button {
+  border: 2px solid #1e2177;
+  color: #1e2177;
+}
+
+
+.view--red {
+  background-image: url('/public/background/FONDO ROJO.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+}
+
+.view--red .header_title{
+  color: whitesmoke;
+}
+
+.view--red .item_category {
+  color: #ffcc04;
+}
+
+.view--red .header_button {
+  border: 2px solid whitesmoke;
+  color: whitesmoke;
+}
+
+
+.view--blue {
+  background-image: url('/public/background/FONDO AZUL MARINO.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+}
+
+.view--blue .header_title{
+  color: #ffcc04;
+}
+
+.view--blue .item_category {
+  color: whitesmoke;
+}
+
+.view--blue .header_button {
+  border: 2px solid #ffcc04;
+  color: whitesmoke;
+}
+
+
+.view--light-blue {
+  background-image: url('/public/background/FONDO AZUL CLARO.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+}
+
+.view--light-blue .header_title{
+  color: #ffcc04;
+}
+
+.view--light-blue .item_category {
+  color: whitesmoke;
+}
+
+.view--light-blue .header_button {
+  border: 2px solid #ffcc04;
+  color: whitesmoke;
+}
+
+
+.view--light-blue2 {
+  background-image: url('/public/background/FONDO AZUL CLARO 2.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+}
+
+.view--light-blue2 .header_title{
+  color: #ffcc04;
+}
+
+.view--light-blue2 .item_category {
+  color: whitesmoke;
+}
+
+.view--light-blue2 .header_button {
+  border: 2px solid #ffcc04;
+  color: whitesmoke;
+}
+
+/* General styles */
+
+.view_header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4rem;
+  padding-top: 3rem;
+}
+
+.header_title {
+  text-transform: uppercase;
+  font-size: 4vw;
+  letter-spacing: .2vw;
+  font-family: 'CarbonBlock';
+}
+
+.header_logo {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+}
+
+.header_logo img {
+  margin: 0 1vw;
+  height: 10vw;
+}
+
+.header_button {
+  cursor: pointer;
+  background: none;
+  padding: .5rem 1rem;  
+  font-size: 1rem;
+}
+
+.header_button i {
+  margin-right: .5rem;
+}
+
+.subcategory-list.cols--2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8rem;
+}
+
+.subcategory-list.cols--2 .nav-item {
+  max-width: 310px;
+}
+
+
+
+.subcategory-list.cols--3 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 5rem;
+}
+
+.subcategory-list.cols--4 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 3rem;
+}
+
+.item_image {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.item_image img {
+  width: 100%;
+}
+
+.nav-item {
+  cursor: pointer;
+  transform: scale(1);
+  transition: .5s;
+}
+.nav-item:hover {
+  transform: scale(1.1);
+  transition: .5s;
+}
+
+.item_category {
+  font-size: 2.434vw;
+  text-transform: uppercase;
+  margin: 1rem 0;
+  font-family: 'CarbonBlock';
+}

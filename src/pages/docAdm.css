@@ -1,0 +1,99 @@
+@font-face {
+    font-family: 'CARBON';
+    src: url('../../public/Fonts/carbon bl.otf') format('truetype');
+  }
+
+body{
+    background-color: #00ADEF;
+    border: 5px solid #ffcb04;
+    height: 98.8vh; 
+}
+
+.backbutton{
+    margin-top: 2%;
+    margin-left: 2%;
+    border: 3px solid white;
+    background-color: #ffcb04;
+    color: white;
+   
+    font-size: 15px;
+    font-weight: bold;
+    border-radius: 10px;
+    height: 50px;
+    width: 100px;
+}
+
+.title{
+    margin-top: 7%;
+    margin-left: 7%;
+    color: white;
+    font-size: 55px;
+    font-weight: bold;
+    font-family: 'CARBON';
+}
+
+.imgright1{
+    float: right;
+    margin-right: 1%;
+    margin-top: 5%;
+    height: 80px;
+}
+
+.imgright2{
+    float: right;
+    margin-right: 5%;
+    margin-top: 5%;
+    height: 80px;
+}
+
+.pdfview{
+    border: 5px solid #ffcb04;
+    height: 175px;
+    width: 300px;
+    background-color: white;
+}
+.Grupo{
+    height: 138px;
+    display: flex;
+    flexDirection: column;
+    pointerEvents: none;
+}
+
+@media screen and (max-width: 1428px) {
+    .pdfview{
+        height: 150px;
+        width: 250px;
+    }
+    .Grupo{
+        height: 113px;
+        
+    }
+}
+
+
+
+.pdfcase{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.pdfname{
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    margin-top: .2%;
+    font-family: 'CARBON';
+}
+
+.pdfcase-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 7%;
+    margin-left: 15%;
+    margin-right: 15%;
+  }
+
+
+Link{
+    text-decoration: none;
+}

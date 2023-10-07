@@ -1,0 +1,7 @@
+/* Add this CSS to your existing CSS file or style section */
+.background-image {
+    background-image: url('/public/background/AMARILLO DE FONDO.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  
