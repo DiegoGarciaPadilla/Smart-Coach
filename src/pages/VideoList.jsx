@@ -1,27 +1,29 @@
-import { useEffect, useState, useCallback } from "react";
-import { useNavigate, useSearchParams } from "react-router-dom";
-import { useDisclosure } from "@mantine/hooks";
-import { Modal, ActionIcon } from "@mantine/core";
-import { Dropzone } from "@mantine/dropzone";
-import { IconX } from "@tabler/icons-react";
-import MostrarVideo from "./mostrarVideo";
-import "./VideoList.css";
-import "./CategoryView.css";
+import { useEffect, useState, useCallback } from "react"; // React modules
+import { useNavigate, useSearchParams } from "react-router-dom"; // React routing modules
+import { useDisclosure } from "@mantine/hooks"; // Mantine hooks
+import { Modal, ActionIcon } from "@mantine/core"; // Mantine components
+import { Dropzone } from "@mantine/dropzone"; // Mantine dropzone component
+import { IconX } from "@tabler/icons-react"; // Tabler icons
+import MostrarVideo from "./mostrarVideo"; // MostrarVideo component
+import "./VideoList.css"; // CSS file
+import "./CategoryView.css"; // CSS file
 
+// Defining the VideoList component
 function VideoList() {
-  const [able, setAble] = useState(false);
-  const [videos, setVideos] = useState([]);
-  const [searchParams] = useSearchParams();
+  const [able, setAble] = useState(false); // Defining able state variable
+  const [videos, setVideos] = useState([]); // Defining videos state variable
+  const [searchParams] = useSearchParams(); // Defining searchParams state variable
 
-  const equipo = searchParams.get("equipo");
-  const categoria = searchParams.get("categoria");
-  const tipo = searchParams.get("tipo");
-  const team = localStorage.getItem("equipo");
-  const dir = tipo ? "/" + tipo : "";
-  const navigate = useNavigate();
+  const equipo = searchParams.get("equipo"); // Getting equipo from searchParams
+  const categoria = searchParams.get("categoria"); // Getting categoria from searchParams
+  const tipo = searchParams.get("tipo"); // Getting tipo from searchParams
+  const team = localStorage.getItem("equipo"); // Getting team from local storage
+  const dir = tipo ? "/" + tipo : ""; // Defining dir variable
+  const navigate = useNavigate(); // Getting navigate from react-router-dom
 
-  const theme = getTheme();
+  const theme = getTheme(); // Defining theme
 
+  // Defining getTheme function (returns theme based on equipo)
   function getTheme() {
     let theme;
     switch (equipo) {
@@ -42,6 +44,7 @@ function VideoList() {
     return theme;
   }
 
+  // Defining fetchVideos function (fetches videos from server)
   const fetchVideos = useCallback(() => {
     var requestOptions = {
       method: "GET",
@@ -60,13 +63,16 @@ function VideoList() {
       .catch((error) => console.log("error", error));
   }, [team, equipo, categoria, dir]);
 
+  // Using useEffect hook to fetch videos
   useEffect(() => {
     fetchVideos();
   }, [fetchVideos]);
 
-  const [opened, { open, close }] = useDisclosure(false);
-  const [link, setLink] = useState({ name: "", link: "" });
-  const [isVideo, setIsVideo] = useState("video");
+  const [opened, { open, close }] = useDisclosure(false); // Defining opened state variable
+  const [link, setLink] = useState({ name: "", link: "" }); // Defining link state variable
+  const [isVideo, setIsVideo] = useState("video"); // Defining isVideo state variable
+
+  // Rendering the component
   return (
     <div className={`list-view view--${theme}`}>
       <Modal

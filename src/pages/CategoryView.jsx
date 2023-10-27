@@ -1,17 +1,19 @@
+
+
 import { useLocation, useNavigate } from 'react-router-dom';
 import './CategoryView.css'
 
 function CategoryView({ viewData }) {
-  const navigate = useNavigate();
-  const location = useLocation();
+  const navigate = useNavigate(); // Hook from react-router-dom
+  const location = useLocation(); // Hook from react-router-dom
 
-  const title = getTitle(viewData, location.pathname);
-  const theme = getTheme(viewData, location.pathname);
-  const buttonContent = getButtonContent(location.pathname);
-  const columns = viewData.columns || 3;
-  const items = viewData.items;
+  const title = getTitle(viewData, location.pathname); // Get the title from the viewData or from the url
+  const theme = getTheme(viewData, location.pathname); // Get the theme from the viewData or from the url
+  const buttonContent = getButtonContent(location.pathname); // Get the buttonContent from the url
+  const columns = viewData.columns || 3; // Get the number of columns from the viewData or set it to 3 by default
+  const items = viewData.items; // Get the items from the viewData
 
-  const stelscout = window.location.pathname.split("/").slice(-2)[0];
+  const stelscout = window.location.pathname.split("/").slice(-2)[0]; // Get the stelscout from the url
 
   return (
     <div className={`view view--${theme}`}>
@@ -79,12 +81,12 @@ function getTheme(viewData, url) {
 }
 
 function getButtonContent(url) {
-  const path = url.substring(1).split('/');
+  const path = url.substring(1).split('/'); // Remove the first slash and split the url by slashes
   const prevPageIdx = path.length - 2; // Retrieve the category of the second to last element of url
   if (prevPageIdx >= 0) {
-    return path[prevPageIdx];
+    return path[prevPageIdx]; // Return the category of the second to last element of url
   }
-  return "menu";
+  return "menu"; // If there is no second to last element, return "menu"
 }
 
 export default CategoryView;

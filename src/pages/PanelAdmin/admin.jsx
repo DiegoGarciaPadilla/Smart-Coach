@@ -1,14 +1,17 @@
-import { Link } from "react-router-dom";
-import { Container, SimpleGrid, Button, Modal } from "@mantine/core";
-import Cuenta from "./Card";
-import addw from "./../../Assets/add_yellow.svg";
-import { useHover } from "@mantine/hooks";
-import { useDisclosure } from "@mantine/hooks";
+// This file contains the code for the Admin component.
+
+import { Link } from "react-router-dom"; // React routing modules
+import { Container, SimpleGrid, Button, Modal } from "@mantine/core"; // Mantine components
+import Cuenta from "./Card"; // Card component
+import addw from "./../../Assets/add_yellow.svg"; // Add icon
+import { useHover } from "@mantine/hooks"; // Mantine hooks
+import { useDisclosure } from "@mantine/hooks"; // Mantine hooks
 //import addFTP from "./addFTP";
 
+// Defining the Admin component
 function Admin() {
-  const { hovered, ref } = useHover();
-  const [opened, { open, close }] = useDisclosure(false);
+  const { hovered, ref } = useHover(); // Defining hovered and ref state variables
+  const [opened, { open, close }] = useDisclosure(false); // Defining opened, open and close state variables
   return (
     <>
       <Modal size="xl" opened={opened} onClose={close} title="Authentication">

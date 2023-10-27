@@ -1,25 +1,29 @@
-import { useEffect, useRef, useState } from "react";
-import { Group, ActionIcon } from "@mantine/core";
-import { IconEraser, IconTrash } from "@tabler/icons-react";
-import "./mostrarVideo.css";
+import { useEffect, useRef, useState } from "react"; // React modules
+import { Group, ActionIcon } from "@mantine/core"; // Mantine components
+import { IconEraser, IconTrash } from "@tabler/icons-react"; // Tabler icons
+import "./mostrarVideo.css"; // CSS file
 
+// Defining the MostrarVideo component
 function MostrarVideo(props) {
-  const [mouse, setMouse] = useState({ x: 0, y: 0 });
-  const canvasRef = useRef(null);
-  const [canvasCTX, setCanvasCTX] = useState(null);
-  const [color, setColor] = useState("#000000");
-  const [dibujar, setDibujar] = useState(2);
+  const [mouse, setMouse] = useState({ x: 0, y: 0 }); // Defining mouse state variable
+  const canvasRef = useRef(null); // Defining canvas reference
+  const [canvasCTX, setCanvasCTX] = useState(null); // Defining canvas context
+  const [color, setColor] = useState("#000000"); // Defining color state variable
+  const [dibujar, setDibujar] = useState(2); // Defining dibujar state variable
 
+  // Using useEffect hook to set canvas context
   useEffect(() => {
     const canvas = canvasRef.current;
     const ctx = canvas.getContext("2d");
     canvas.width = window.innerWidth * 0.85;
     canvas.height = window.innerHeight * 0.835;
-
     setCanvasCTX(ctx);
   }, [canvasRef]);
+
+  // Defining theme
   const theme = getTheme();
 
+  // Defining getTheme function (returns theme based on equipo)
   function getTheme() {
     let theme;
     switch (props.equipo) {
@@ -39,6 +43,8 @@ function MostrarVideo(props) {
 
     return theme;
   }
+
+  // Defining SetPos function (sets mouse position)
   const SetPos = (e) => {
     setMouse({
       x: e.clientX,
@@ -46,6 +52,7 @@ function MostrarVideo(props) {
     });
   };
 
+  // Defining Draw function (draws on canvas)
   const Draw = (e) => {
     const canvas = canvasRef.current;
     let r = canvas.getBoundingClientRect();
@@ -73,12 +80,14 @@ function MostrarVideo(props) {
     ctx.stroke();
   };
 
+  // Defining Erase function (clears canvas)
   const Erase = (e) => {
     const canvas = canvasRef.current;
     const context = canvas.getContext("2d");
     context.clearRect(0, 0, canvas.width, canvas.height);
   };
 
+  // Returning JSX
   return (
     <div className={`list-view view--${theme}`}>
       <Group m={5}>
@@ -146,6 +155,7 @@ function MostrarVideo(props) {
             n
           </div>
         </button>
+        {/* Eraser */}
         <ActionIcon
           color="red"
           radius="xl"
@@ -158,6 +168,7 @@ function MostrarVideo(props) {
         >
           <IconEraser />
         </ActionIcon>
+        {/* Trash */}
         <ActionIcon
           color="red"
           radius="xl"
@@ -172,6 +183,7 @@ function MostrarVideo(props) {
         </ActionIcon>
       </Group>
 
+      {/* Video */}
       <div class="cuerpo">
         {props.medio === "video" ? (
           <video
@@ -189,6 +201,7 @@ function MostrarVideo(props) {
           />
         )}
 
+        {/* Canvas */}
         <canvas
           ref={canvasRef}
           onMouseMove={(e) => Draw(e)}
