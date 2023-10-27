@@ -1,3 +1,4 @@
+// This function initializes a Godot game by creating a new Engine object with a configuration object.
 function init_godot_game() {
   const GODOT_CONFIG = {
     args: [],
@@ -10,6 +11,7 @@ function init_godot_game() {
   };
   var engine = new Engine(GODOT_CONFIG);
 
+  // This is an immediately invoked function expression (IIFE) that handles the game initialization process.
   (function () {
     const INDETERMINATE_STATUS_STEP_MS = 100;
     var statusProgress = document.getElementById("status-progress");
@@ -20,13 +22,7 @@ function init_godot_game() {
     var initializing = true;
     var statusMode = "hidden";
 
-    var animationCallbacks = [];
-    function animate(time) {
-      animationCallbacks.forEach((callback) => callback(time));
-      requestAnimationFrame(animate);
-    }
-    requestAnimationFrame(animate);
-
+    // This function sets the status mode of the game initialization process.
     function setStatusMode(mode) {
       if (statusMode === mode || !initializing) return;
       [statusProgress, statusIndeterminate, statusNotice].forEach((elem) => {
@@ -54,6 +50,7 @@ function init_godot_game() {
       statusMode = mode;
     }
 
+    // This function animates the indeterminate status of the game initialization process.
     function animateStatusIndeterminate(ms) {
       var i = Math.floor((ms / INDETERMINATE_STATUS_STEP_MS) % 8);
       if (statusIndeterminate.children[i].style.borderTopColor == "") {
@@ -66,6 +63,7 @@ function init_godot_game() {
       }
     }
 
+    // This function sets the status notice of the game initialization process.
     function setStatusNotice(text) {
       while (statusNotice.lastChild) {
         statusNotice.removeChild(statusNotice.lastChild);
@@ -77,6 +75,7 @@ function init_godot_game() {
       });
     }
 
+    // This function displays a failure notice if the game initialization process fails.
     function displayFailureNotice(err) {
       var msg = err.message || err;
       console.error(msg);
@@ -85,6 +84,7 @@ function init_godot_game() {
       initializing = false;
     }
 
+    // This block of code checks if WebGL is available and starts the game with the given configuration.
     if (!Engine.isWebGLAvailable()) {
       displayFailureNotice("WebGL not available");
     } else {

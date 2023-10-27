@@ -1,9 +1,12 @@
-import React, { useState } from "react";
-import Validation from "./LoginValidation";
-import axios from "axios";
-import "./Login.css";
+// Importing necessary modules
+import React, { useState } from "react"; 
+import Validation from "./LoginValidation"; // Importing a custom validation function
+import axios from "axios"; // Importing axios for making HTTP requests
+import "./Login.css"; // Importing a CSS file
 
+// Defining the Login component
 function Login() {
+  // Defining state variables using the useState hook
   const [values, setValues] = useState({
     email: "",
     password: "",
@@ -23,8 +26,9 @@ function Login() {
     "admin",
   ]);
 
-  const [errors, setErrors] = useState({});
+  const [errors, setErrors] = useState({}); // Defining an errors object for validation errors
 
+  // Function to handle input changes
   const handleInput = (event) => {
     if (event.target.name === "categorias") {
       setSelectedCategory(event.target.value);
@@ -36,9 +40,10 @@ function Login() {
     }
   };
 
+  // Function to handle form submission
   const handleSubmit = (event) => {
     event.preventDefault();
-    const validationErrors = Validation(values);
+    const validationErrors = Validation(values); // Validating the form values using the custom validation function
     setErrors(validationErrors);
     if (validationErrors.email === "" && validationErrors.password === "") {
       axios
@@ -69,6 +74,7 @@ function Login() {
     }
   };
 
+  // Rendering the Login component
   return (
     <div className="background-image">
       <div className="d-flex justify-content-center align-items-center vh-100">
@@ -141,4 +147,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default Login; // Exporting the Login component

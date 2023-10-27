@@ -1,3 +1,4 @@
+// Importing necessary components and modules
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import NavScreen from "./pages/navigationScreen";
@@ -13,19 +14,25 @@ import ProtectedRoute from "./pages/rerouting/protectedRoute";
 import ProtectedLogin from "./pages/rerouting/protectedlogin";
 import ProtectedAdmin from "./pages/rerouting/protectedAdmin";
 
+// Exporting the main component of the application
 export default function App() {
+  // Defining state variables
   const [credenciales, setcredenciales] = useState("");
   const [isadmin, setisadmin] = useState("");
 
+  // Using useEffect hook to retrieve data from local storage
   useEffect(() => {
     var valueFromLocalStorage = localStorage.getItem("credenciales");
     setcredenciales(valueFromLocalStorage);
     valueFromLocalStorage = localStorage.getItem("adminStatus");
     setisadmin(valueFromLocalStorage);
   }, []);
+
+  // Rendering the application
   return (
     <BrowserRouter>
       <Routes>
+        {/* Defining routes for login and admin pages */}
         <Route element={<ProtectedLogin credenciales={credenciales} />}>
           <Route path="/" element={<Login />} />
         </Route>
@@ -37,11 +44,14 @@ export default function App() {
         >
           <Route path="/admin" element={<Admin />} />
         </Route>
+
+        {/* Defining protected routes for the rest of the application */}
         <Route element={<ProtectedRoute credenciales={credenciales} />}>
           <Route path="/home" element={<NavScreen />} />
           <Route path="/videos" element={<VideoList />} />
           <Route path="/generador-jugadas" element={<PlayGenerator />} />
 
+          {/* Defining nested routes for different categories */}
           <Route path="scout">
             <Route
               index
