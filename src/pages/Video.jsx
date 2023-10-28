@@ -1,17 +1,17 @@
-import { useEffect, useRef, useState } from "react"; // React modules
+import React, { useEffect, useRef, useState } from "react"; // React modules
 import { Group, ActionIcon } from "@mantine/core"; // Mantine components
 import { IconEraser, IconTrash } from "@tabler/icons-react"; // Tabler icons
-import "./mostrarVideo.css"; // CSS file
+import "./Video.css"; // CSS file
 
-// Defining the MostrarVideo component
-function MostrarVideo(props) {
+// Defining the Video component
+function Video(props) {
   const [mouse, setMouse] = useState({ x: 0, y: 0 }); // Defining mouse state variable
-  const canvasRef = useRef(null); // Defining canvas reference
-  const [canvasCTX, setCanvasCTX] = useState(null); // Defining canvas context
+  const canvasRef = useRef(null); // Defining canvasRef state variable
+  const [canvasCTX, setCanvasCTX] = useState(null); // Defining canvasCTX state variable
   const [color, setColor] = useState("#000000"); // Defining color state variable
   const [dibujar, setDibujar] = useState(2); // Defining dibujar state variable
 
-  // Using useEffect hook to set canvas context
+  // Defining useEffect hook (runs when component mounts)
   useEffect(() => {
     const canvas = canvasRef.current;
     const ctx = canvas.getContext("2d");
@@ -75,22 +75,22 @@ function MostrarVideo(props) {
     } else {
       ctx.clearRect(e.clientX - r.x, e.clientY - r.y, 20, 20);
     }
-    // Set the line cap to round
     ctx.lineCap = "round";
     ctx.stroke();
   };
 
-  // Defining Erase function (clears canvas)
+  // Defining Erase function (erases canvas)
   const Erase = (e) => {
     const canvas = canvasRef.current;
     const context = canvas.getContext("2d");
     context.clearRect(0, 0, canvas.width, canvas.height);
   };
 
-  // Returning JSX
+  // Rendering the component
   return (
     <div className={`list-view view--${theme}`}>
       <Group m={5}>
+        {/* The following buttons change the color of the pen to the color of the button */}
         <button
           onClick={(e) => {
             setColor("black");
@@ -155,7 +155,7 @@ function MostrarVideo(props) {
             n
           </div>
         </button>
-        {/* Eraser */}
+        {/* This button changes the pen to an eraser */}
         <ActionIcon
           color="red"
           radius="xl"
@@ -168,7 +168,7 @@ function MostrarVideo(props) {
         >
           <IconEraser />
         </ActionIcon>
-        {/* Trash */}
+        {/* This button erases the canvas */}
         <ActionIcon
           color="red"
           radius="xl"
@@ -182,8 +182,7 @@ function MostrarVideo(props) {
           <IconTrash />
         </ActionIcon>
       </Group>
-
-      {/* Video */}
+      {/* This div contains the canvas and the video */}
       <div class="cuerpo">
         {props.medio === "video" ? (
           <video
@@ -200,8 +199,6 @@ function MostrarVideo(props) {
             src={`https://smartcoach.top/back/datos${props.link}`}
           />
         )}
-
-        {/* Canvas */}
         <canvas
           ref={canvasRef}
           onMouseMove={(e) => Draw(e)}
@@ -212,4 +209,4 @@ function MostrarVideo(props) {
   );
 }
 
-export default MostrarVideo;
+export default Video;

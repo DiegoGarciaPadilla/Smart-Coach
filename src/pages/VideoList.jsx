@@ -4,7 +4,7 @@ import { useDisclosure } from "@mantine/hooks"; // Mantine hooks
 import { Modal, ActionIcon } from "@mantine/core"; // Mantine components
 import { Dropzone } from "@mantine/dropzone"; // Mantine dropzone component
 import { IconX } from "@tabler/icons-react"; // Tabler icons
-import MostrarVideo from "./mostrarVideo"; // MostrarVideo component
+import Video from "./Video"; // Video component
 import "./VideoList.css"; // CSS file
 import "./CategoryView.css"; // CSS file
 
@@ -82,7 +82,7 @@ function VideoList() {
         onClose={close}
         title={link.name}
       >
-        <MostrarVideo link={link.link} equipo={equipo} medio={isVideo} />
+        <Video link={link.link} equipo={equipo} medio={isVideo} />
       </Modal>
       <header className="view_header">
         <div className="container">
