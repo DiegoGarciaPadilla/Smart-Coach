@@ -151,9 +151,10 @@ function VideoList() {
                 open();
               }}
             >
+              {/* Video thumbnail */}
               <img
                 className="video_thumbnail"
-                src={video.link}
+                src={video.thumbnailUrl}
                 alt={video.name}
               />
               <div className="item_category">{video.name}</div>
