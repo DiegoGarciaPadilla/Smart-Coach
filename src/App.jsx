@@ -1,24 +1,24 @@
 // Importing necessary components and modules
 
-import { Routes, Route, BrowserRouter } from "react-router-dom";  // React routing modules
-import React, { useEffect, useState } from "react";               // React modules
+import { Routes, Route, BrowserRouter } from "react-router-dom"; // React routing modules
+import React, { useEffect, useState } from "react"; // React modules
 
-import "./App.css";                                               // CSS file
+import "./App.css"; // CSS file
 
-import NavScreen      from "./pages/navigationScreen";            // Navigation screen component
-import Login          from "./Login";                             // Login component
-import CategoryView   from "./pages/CategoryView";                // Category view component
-import VideoList      from "./pages/VideoList";                   // Video list component
-import DocumentViews  from "./pages/DocumentViews";               // Document view component
-import Admin          from "./pages/PanelAdmin/admin";            // Admin panel component
-import PlayGenerator  from "./pages/PlayGenerator";               // Play generator component
-import ProtectedRoute from "./pages/rerouting/protectedRoute";    // Protected route component
-import ProtectedLogin from "./pages/rerouting/protectedlogin";    // Protected login component
-import ProtectedAdmin from "./pages/rerouting/protectedAdmin";    // Protected admin component
+import NavScreen from "./pages/navigationScreen"; // Navigation screen component
+import Login from "./Login"; // Login component
+import CategoryView from "./pages/CategoryView"; // Category view component
+import VideoList from "./pages/VideoList"; // Video list component
+import DocumentViews from "./pages/DocumentViews"; // Document view component
+import Admin from "./pages/PanelAdmin/admin"; // Admin panel component
+import PlayGenerator from "./pages/PlayGenerator"; // Play generator component
+import ProtectedRoute from "./pages/rerouting/protectedRoute"; // Protected route component
+import ProtectedLogin from "./pages/rerouting/protectedlogin"; // Protected login component
+import ProtectedAdmin from "./pages/rerouting/protectedAdmin"; // Protected admin component
 
-import navigation from "./data/navigation.json";                  // Navigation data
+import navigation from "./data/navigation.json"; // Navigation data
 
-// Exporting the main component of the application 
+// Exporting the main component of the application
 export default function App() {
   // Defining state variables (credenciales and isadmin)
   const [credenciales, setCredenciales] = useState("");
@@ -26,10 +26,10 @@ export default function App() {
 
   // Using useEffect hook to retrieve data from local storage
   useEffect(() => {
-    var valueFromLocalStorage = localStorage.getItem("credenciales"); {/* Retrieving credenciales from local storage */}
-    setCredenciales(valueFromLocalStorage);                           {/* Setting credenciales state variable */}
-    valueFromLocalStorage = localStorage.getItem("adminStatus");      {/* Retrieving admin status from local storage */}
-    setIsAdmin(valueFromLocalStorage);                                {/* Setting isadmin state variable */}
+    var valueFromLocalStorage = localStorage.getItem("credenciales");
+    setCredenciales(valueFromLocalStorage);
+    valueFromLocalStorage = localStorage.getItem("adminStatus");
+    setIsAdmin(valueFromLocalStorage);
   }, []);
 
   // Rendering the application
