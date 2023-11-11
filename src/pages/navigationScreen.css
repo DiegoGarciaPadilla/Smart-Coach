@@ -108,3 +108,26 @@ img {
 .nav-button-image {
   height: 8rem;
 }
+
+/* Responsive */
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 10vw;
+  }
+  .title2 {
+    font-size: 5vw;
+  }
+  .header-logo img {
+    width: 20vw;
+  }
+  .nav-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .nav-button-image {
+    height: 5rem;
+  }
+  .nav-text {
+    font-size: 1rem;
+  }
+}
