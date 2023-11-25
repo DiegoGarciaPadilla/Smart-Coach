@@ -25,12 +25,15 @@
 
 .video {
   cursor: pointer;
+
 }
 
 .video-list {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  gap: 3vw;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 2vw;
+  
+  padding: 1rem;
 }
 
 .drag-drop {
@@ -43,4 +46,12 @@
   font-family: 'CarbonBlock';
   height: 15vw;
   cursor: pointer;
+}
+
+/* Responsive */
+
+@media (max-width: 768px) {
+  .video-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }

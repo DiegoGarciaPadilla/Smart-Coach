@@ -84,23 +84,18 @@ function VideoList() {
       >
         <Video link={link.link} equipo={equipo} medio={isVideo} />
       </Modal>
-      <header className="view_header">
+      <header className="header">
         <div className="container">
-          <h3 className="header_title">Videos</h3>
-          <button className="header_button" onClick={() => navigate(-1)}>
+          <h3 className="header-title">Videos</h3>
+          <button className="header-button" onClick={() => navigate(-1)}>
             <i className="fa fa-solid fa-arrow-left"></i>
             Volver
           </button>
         </div>
-        <figure className="header_logo">
+        <figure className="header-logo">
           <img
             src="/Logos/Logo circular1.png"
             alt="Logo Circular 1"
-            className="Logo"
-          />
-          <img
-            src="/Logos/logo texto1.png"
-            alt="Logo texto 1"
             className="Logo"
           />
         </figure>
@@ -153,11 +148,11 @@ function VideoList() {
             >
               {/* Video thumbnail */}
               <img
-                className="video_thumbnail"
+                className="video-thumbnail"
                 src={video.thumbnailUrl}
                 alt={video.name}
               />
-              <div className="item_category">{video.name}</div>
+              <div className="item-category">{video.name}</div>
             </div>
           </div>
         ))}
