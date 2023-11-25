@@ -21,7 +21,7 @@ body{
   height: 100%;
 }
 
-.view--yellow .header_button {
+.view--yellow .header-button {
   border: 2px solid black;
 }
 
@@ -34,15 +34,15 @@ body{
   height: 100%;
 }
 
-.view--black .header_title{
+.view--black .header-title{
   color: whitesmoke; 
 }
 
-.view--black .item_category {
+.view--black .item-category {
   color: #ffcc04;
 }
 
-.view--black .header_button {
+.view--black .header-button {
   border: 2px solid whitesmoke;
   color: whitesmoke;
 }
@@ -56,12 +56,12 @@ body{
   height: 100%;
 }
 
-.view--white .header_title, .view--white .item_category{
+.view--white .title, .view--white .item-category{
   /* color: #f01c24; */
   color: #1e2177;
 }
 
-.view--white .header_button {
+.view--white .header-button {
   border: 2px solid #1e2177;
   color: #1e2177;
 }
@@ -75,15 +75,15 @@ body{
   height: 100%;
 }
 
-.view--red .header_title{
+.view--red .header-title{
   color: whitesmoke;
 }
 
-.view--red .item_category {
+.view--red .item-category {
   color: #ffcc04;
 }
 
-.view--red .header_button {
+.view--red .header-button {
   border: 2px solid whitesmoke;
   color: whitesmoke;
 }
@@ -97,15 +97,15 @@ body{
   height: 100%;
 }
 
-.view--blue .header_title{
+.view--blue .header-title{
   color: #ffcc04;
 }
 
-.view--blue .item_category {
+.view--blue .item-category {
   color: whitesmoke;
 }
 
-.view--blue .header_button {
+.view--blue .header-button {
   border: 2px solid #ffcc04;
   color: whitesmoke;
 }
@@ -119,15 +119,15 @@ body{
   height: 100%;
 }
 
-.view--light-blue .header_title{
+.view--light-blue .header-title{
   color: #ffcc04;
 }
 
-.view--light-blue .item_category {
+.view--light-blue .item-category {
   color: whitesmoke;
 }
 
-.view--light-blue .header_button {
+.view--light-blue .header-button {
   border: 2px solid #ffcc04;
   color: whitesmoke;
 }
@@ -141,22 +141,22 @@ body{
   height: 100%;
 }
 
-.view--light-blue2 .header_title{
+.view--light-blue2 .header-title{
   color: #ffcc04;
 }
 
-.view--light-blue2 .item_category {
+.view--light-blue2 .item-category {
   color: whitesmoke;
 }
 
-.view--light-blue2 .header_button {
+.view--light-blue2 .header-button {
   border: 2px solid #ffcc04;
   color: whitesmoke;
 }
 
 /* General styles */
 
-.view_header {
+.view-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -164,82 +164,95 @@ body{
   padding-top: 3rem;
 }
 
-.header_title {
+.header-title {
   text-transform: uppercase;
   font-size: 4vw;
   letter-spacing: .2vw;
   font-family: 'CarbonBlock';
 }
 
-.header_logo {
+.header-logo {
   display: flex;
   justify-content: flex-end;
-  align-items: flex-start;
 }
 
-.header_logo img {
+.header-logo img {
   margin: 0 1vw;
   height: 10vw;
 }
 
-.header_button {
+.header-button {
   cursor: pointer;
   background: none;
   padding: .5rem 1rem;  
   font-size: 1rem;
 }
 
-.header_button i {
+.header-button i {
   margin-right: .5rem;
 }
 
-.subcategory-list.cols--2 {
+.subcategory-list {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 8rem;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 2vw;
+
+  padding: 2rem;
 }
 
-.subcategory-list.cols--2 .nav-item {
-  max-width: 310px;
-}
-
-
-
-.subcategory-list.cols--3 {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 5rem;
-}
-
-.subcategory-list.cols--4 {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  gap: 3rem;
-}
-
-.item_image {
+.item-image {
   width: 100%;
   padding: 0;
   margin: 0;
 }
 
-.item_image img {
+.item-image img {
   width: 100%;
 }
 
-.nav-item {
-  cursor: pointer;
-  transform: scale(1);
-  transition: .5s;
-}
-.nav-item:hover {
-  transform: scale(1.1);
-  transition: .5s;
+.nav-option {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+
+  transition: 0.3s ease-in-out;
+  scale: 1;
 }
 
-.item_category {
-  font-size: 2.434vw;
+.nav-option:hover {
+  transition: 0.3s ease-in-out;
+  scale: 1.1;
+  cursor: pointer;
+}
+
+.item-category {
+  font-size: 1.5rem;
   text-transform: uppercase;
   margin: 1rem 0;
   font-family: 'CarbonBlock';
+}
+
+/* Responsive */
+
+@media (max-width: 768px) {
+  .header-title {
+    font-size: 10vw;
+  }
+  .header-logo{
+    justify-content: center;
+  }
+  .header-logo img {
+    width: 5rem;
+    height: 5rem;
+  }
+  .subcategory-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .nav-button-image {
+    height: 5rem;
+  }
+  .item-category {
+    font-size: 1rem;
+  }
 }

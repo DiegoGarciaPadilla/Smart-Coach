@@ -10,44 +10,42 @@ function CategoryView({ viewData }) {
   const title = getTitle(viewData, location.pathname); // Get the title from the viewData or from the url
   const theme = getTheme(viewData, location.pathname); // Get the theme from the viewData or from the url
   const buttonContent = getButtonContent(location.pathname); // Get the buttonContent from the url
-  const columns = viewData.columns || 3; // Get the number of columns from the viewData or set it to 3 by default
   const items = viewData.items; // Get the items from the viewData
 
   const stelscout = window.location.pathname.split("/").slice(-2)[0]; // Get the stelscout from the url
 
   return (
     <div className={`view view--${theme}`}>
-      <header className="view_header">
+      <header className="view-header">
         <div className="container">
-          <h3 className="header_title">{title}</h3>
-          <button className="header_button" onClick={() => navigate(-1)}>
+          <h3 className="header-title">{title}</h3>
+          <button className="header-button" onClick={() => navigate(-1)}>
             <i className="fa fa-solid fa-arrow-left"></i>
             Volver a {buttonContent}
           </button>
         </div>
-        <figure className="header_logo">
+        <figure className="header-logo">
           <img src="/Logos/Logo circular1.png" alt="Logo Circular 1"/>
-          <img src="/Logos/logo texto1.png" alt="Logo texto 1"/>
         </figure>
       </header>
-      <section className={`subcategory-list cols--${columns}`}>
+      <nav className={`subcategory-list`}>
         {items.map(item => (
           <div 
-            className="nav-item" 
+            className="nav-option" 
             key={item.category}
             onClick={() => { if(stelscout === "steelers"){ navigate(item.target2)} else {navigate(item.target)} }}  
           >
-            <figure className="item_image">
+            <figure className="item-image">
               {stelscout === "steelers" ? (
                 <img src={item.image2} alt={`category-${item.category}`} />
               ) : (
                 <img src={item.image} alt={`category-${item.category}`} />
               )}
             </figure>
-            <div className="item_category">{item.category}</div>
+            <div className="item-category">{item.category}</div>
           </div>
         ))}
-      </section>
+      </nav>
     </div>
   );
 }
