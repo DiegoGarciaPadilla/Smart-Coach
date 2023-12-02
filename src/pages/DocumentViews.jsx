@@ -7,7 +7,9 @@ import {
   Text,
   Dialog,
 } from "@mantine/core";
+
 import "./CategoryView.css";
+
 import { IconUpload, IconX } from "@tabler/icons-react";
 import { Dropzone, PDF_MIME_TYPE } from "@mantine/dropzone";
 import { useDisclosure } from "@mantine/hooks";
@@ -20,7 +22,7 @@ function CategoryView({ viewData }, props) {
   const title = viewData.title;
   const theme = viewData.theme;
   const buttonContent = getButtonContent(location.pathname);
-  const columns = viewData.columns || 3;
+  //const columns = viewData.columns || 3;
   const items = viewData.items;
 
   //const stelscout = window.location.pathname.split("/").slice(-2)[0];
@@ -38,22 +40,21 @@ function CategoryView({ viewData }, props) {
   return (
     <>
       <div className={`view view--${theme}`}>
-        <header className="view_header">
+        <header className="view-header">
           <div className="container">
-            <h3 className="header_title">{title}</h3>
-            <button className="header_button" onClick={() => navigate(-1)}>
+            <h3 className="header-title">{title}</h3>
+            <button className="header-button" onClick={() => navigate(-1)}>
               <i className="fa fa-solid fa-arrow-left"></i>
               Volver a {buttonContent}
             </button>
           </div>
-          <figure className="header_logo">
+          <figure className="header-logo">
             <img src="/Logos/Logo circular1.png" alt="Logo Circular 1" />
-            <img src="/Logos/logo texto1.png" alt="Logo texto 1" />
           </figure>
         </header>
-        <section className={`subcategory-list cols--${columns}`}>
+        <nav className={`subcategory-list`}>
           {items.map((item) => (
-            <div className="nav-item" key={item.category}>
+            <div className="nav-option" key={item.category}>
               <div className="pdfcase">
                 <div className="pdfview">
                   <Dropzone
@@ -192,7 +193,7 @@ function CategoryView({ viewData }, props) {
               </Popover>
             </div>
           ))}
-        </section>
+        </nav>
       </div>
       <Dialog
         opened={opened}
