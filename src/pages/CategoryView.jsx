@@ -1,5 +1,3 @@
-
-
 import { useLocation, useNavigate } from 'react-router-dom';
 import './CategoryView.css'
 

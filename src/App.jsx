@@ -8,8 +8,8 @@ import "./App.css"; // CSS file
 import NavScreen from "./pages/navigationScreen"; // Navigation screen component
 import Login from "./Login"; // Login component
 import CategoryView from "./pages/CategoryView"; // Category view component
+import DocumentList from "./pages/DocumentList"; // Document list component
 import VideoList from "./pages/VideoList"; // Video list component
-import DocumentViews from "./pages/DocumentViews"; // Document view component
 import Admin from "./pages/PanelAdmin/admin"; // Admin panel component
 import PlayGenerator from "./pages/PlayGenerator"; // Play generator component
 import ProtectedRoute from "./pages/rerouting/protectedRoute"; // Protected route component
@@ -53,6 +53,7 @@ export default function App() {
         <Route element={<ProtectedRoute credenciales={credenciales} />}>
           <Route path="/home" element={<NavScreen />} />
           <Route path="/videos" element={<VideoList />} />
+          <Route path="/documentos" element={<DocumentList />} />
           <Route path="/generador-jugadas" element={<PlayGenerator />} />
 
           {/* Defining nested routes for different categories */}
@@ -119,21 +120,21 @@ export default function App() {
           <Route path="playbook">
             <Route
               index
-              element={<DocumentViews viewData={navigation.playbook} />}
+              element={<CategoryView viewData={navigation.playbook} />}
             />
           </Route>
 
           <Route path="coaches">
             <Route
               index
-              element={<DocumentViews viewData={navigation.coaches} />}
+              element={<CategoryView viewData={navigation.coaches} />}
             />
           </Route>
 
           <Route path="administracion">
             <Route
               index
-              element={<DocumentViews viewData={navigation.administracion} />}
+              element={<CategoryView viewData={navigation.administracion} />}
             />
           </Route>
         </Route>

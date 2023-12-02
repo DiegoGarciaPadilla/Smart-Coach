@@ -302,22 +302,22 @@
       {
         "category": "reglamentos coaches",
         "image": "/Logos/docCoaches/DOCUMENTOS COACHES REGLAMENTO COACHES.png",
-        "target": "reglamentos-coaches/documentos"
+        "target": "/documentos?equipo=coaches&categoria=reglamentos-coaches"
       },
       {
         "category": "formatos coaches",
         "image": "/Logos/docCoaches/DOCUMENTOS COACHES FORMATOS COACHES.png",
-        "target": "formatos-coaches/documentos"
+        "target": "/documentos?equipo=coaches&categoria=formatos-coaches"
       },
       {
         "category": "reglamento onefa",
         "image": "/Logos/docCoaches/DOCUMENTOS COACHES REGLAMENTOS ONEFA.png",
-        "target": "reglamento-onefa/documentos"
+        "target": "/documentos?equipo=coaches&categoria=reglamento-onefa"
       },
       {
         "category": "reglamento ofamo",
         "image": "/Logos/docCoaches/DOCUMENTOS COACHES REGLAMENTOS OFAMO.png",
-        "target": "reglamento-ofamo/documentos"
+        "target": "/documentos?equipo=coaches&categoria=reglamento-ofamo"
       }
     ]
   },
@@ -330,22 +330,22 @@
       {
         "category": "reglamentos padres",
         "image": "/Logos/docAdmin/DOCUMENTOS ADMINISTRACION REGLAMENTOS PADRES.png",
-        "target": "reglamentos-padres/documentos"
+        "target": "/documentos?equipo=administracion&categoria=reglamentos-padres"
       },
       {
         "category": "formatos inscripcion",
         "image": "/Logos/docAdmin/DOCUMENTOS ADMINISTRACION FORMATOS DE INSCRIPCION.png",
-        "target": "formatos-inscripcion/documentos"
+        "target": "/documentos?equipo=administracion&categoria=formatos-inscripcion"
       },
       {
         "category": "reglamento managers",
         "image": "/Logos/docAdmin/DOCUMENTOS ADMINISTRACION REGLAMENTO MANAGERS.png",
-        "target": "reglamento-managers/documentos"
+        "target": "/documentos?equipo=administracion&categoria=reglamento-managers"
       },
       {
         "category": "reglamento jugadores",
         "image": "/Logos/docAdmin/DOCUMENTOS ADMINISTRACION REGLAMENTO DE JUGADORES.png",
-        "target": "reglamento-jugadores/documentos"
+        "target": "/documentos?equipo=administracion&categoria=reglamento-jugadores"
       }
     ]
   }
