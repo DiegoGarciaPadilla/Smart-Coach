@@ -1,12 +1,20 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { useNavigate, useSearchParams } from "react-router-dom"; // React routing modules
+
+import { Link } from "react-router-dom";
 
 const DocumentList = () => {
+  const [searchParams] = useSearchParams(); // Defining searchParams state variable (for getting search params from URL)
+  const navigate = useNavigate(); // Getting navigate from react-router-dom (for navigating between pages)
+
+  const team = searchParams.get("equipo"); // Getting equipo from URL
+  const categoria = searchParams.get("categoria"); // Getting categoria from URL
+
   return (
     <div>
-      <h1>Test Component</h1>
-      <p>This is a test component for routing.</p>
-      <Link to="/other-page">Go to Other Page</Link>
+      <h1>Documentos {team}</h1>
+      <h2>Categoria {categoria}</h2>
+      <button onClick={() => navigate(-1)}>Volver</button>
     </div>
   );
 };
